@@ -5,6 +5,7 @@ class Config {
 	public static $con;
 
 	// Production
+	/*
   public static $domain = 'www.ffxivhuntspath.com';
   public static $domain_cookie = '.ffxivhuntspath.com';
   public static $context = '';
@@ -15,20 +16,20 @@ class Config {
 	public static $db_table = 'ffxiv2';
 	
   public static $cache_mode = 'memcached';
-	
+	*/
 	// Dev
-	/*
-  public static $domain = 'localhost:80/hunts';
-  public static $domain_cookie = 'localhost:80/hunts';
+	
+  public static $domain = 'localhost:8080/hunts';
+  public static $domain_cookie = 'localhost:8080/hunts';
   public static $context = '/hunts';
 	
-	public static $db_hostname = 'localhost';
+	public static $db_hostname = 'mysql-ff';
 	public static $db_username = 'root';
-	public static $db_password = 'root';
+	public static $db_password = 'creed@011';
 	public static $db_table = 'ffxiv2';
 	
   public static $cache_mode = 'files';
-	*/
+	
 	// Others
   public static $cookie_game_lang = 'glang';
 	public static $cookie_web_lang = 'wlang';
@@ -41,6 +42,8 @@ class Config {
 	public static $precalculated_paths_shb = 'precalculated_paths_shb';
 	
 	public static function getDbConnection() {
+		//sleep(15);
+		print "waitado 15s";
 		if (!Config::$con || !Config::checkDbConnection(Config::$con)) {
 			if (Config::$con) {
 				mysqli_close(Config::$con);

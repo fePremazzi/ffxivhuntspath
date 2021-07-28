@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+    ffhunts:
+        container_name: ff1-test
+        image: fepremazzi/ffhuntspath:latest
+        ports:
+            - 8080:8080
+        networks: 
+            - hunts-net
+        depends_on: 
+            - mysql
+    mysql:
+        container_name: mysql-ff
+        image: mysql:5.6.48
+        ports:
+            - 3307:3306
+        environment: 
+            MYSQL_ROOT_PASSWORD: creed@011
+        networks: 
+            - hunts-net
+        volumes: 
+            - ./data-db:/var/lib/mysql
+        
+        
+
+networks: 
+    hunts-net:
+        driver: bridge
